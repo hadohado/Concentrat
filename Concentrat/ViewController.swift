@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBAction func touchCard(_ sender: UIButton) {
+        print("you touched me!")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
