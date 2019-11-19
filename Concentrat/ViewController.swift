@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     var flipCount: Int = 0 {
-        didSet {
+        
+        didSet { // this is Property Observer
+                 // will run this code everytime the flipCount var changes value
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
