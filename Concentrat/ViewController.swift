@@ -18,19 +18,32 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet var cardButtons: [UIButton]!
+    
+    var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" ]
+    @IBOutlet weak var flipCountLabel: UILabel! // 1:06:18
+    
     
     @IBAction func touchCard(_ sender: UIButton) {
         print("you touched me!")
         flipCount += 1
-        flipCard(withEmoji: "❤️" , on: sender)
+        
+        // cardNumber is never mutated (is a constant) change var to let
+        // using firstIndex(of:) to find the position of a particular element in a collection, you can use it to access the element by subscripting.
+        if let cardNumber = cardButtons.firstIndex(of: sender) { // _.index(of: <#T##UIButton#>) is obsolete
+            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            // print("cardNumber =  \(cardNumber)" )
+        } else {
+            print("chosen card is not in cardButtons array")
+        }
+        // flipCard(withEmoji: "❤️" , on: sender)
     }
     
     
-    @IBAction func touchCard2(_ sender: UIButton) {
-        flipCount += 1
-        flipCard(withEmoji: "🍒" , on: sender)
-    }
+//    @IBAction func touchCard2(_ sender: UIButton) {
+//        flipCount += 1
+//        flipCard(withEmoji: "🍒" , on: sender)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
