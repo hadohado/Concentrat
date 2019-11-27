@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
-    var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" ]
+    var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" , "🍄", "🐬", "🐥", "🧵", "💰", "🐠", "👩‍❤️‍💋‍👨", "🎯", "😘", "🦀", "🎥", "🎉", "🎄", "🦄" ]
     @IBOutlet weak var flipCountLabel: UILabel! // 1:06:18
     
     

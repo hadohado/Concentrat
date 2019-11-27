@@ -16,34 +16,57 @@ import Foundation
 
 class Concentrat
 {
-    var cards = [Card]()            // <- equiv to   var cards = Array<Card>()
+    var cards = [Card]()  // <- equiv to var cards = Array<Card>()
     
     // allow user to flip/choose card
-    func chooseCard (at index: Int) { // index into cards array, let user choose card by specifying index number into cards array
+    func chooseCard (at index: Int) {
+        
     }
     
     init (numberOfPairsOfCards: Int) {
-        for id in 1...numberOfPairsOfCards {
-            // 3rd way to create 2 cards (best way)
-            // we actually have 3 copy of card
-            // (3 distinct card objects in memory)
-            let card = Card(identifier: id) // copy #1 of card
-            cards = [card, card]     // copy #2 and #3 of card
-            
-            // 1st way to create card and matchindCard
-            // let card = Card(identifier: id)
-            // let matchingCard = Card(identifier: id)
-            // cards.append(card)
-            // cards.append(matchingCard)
-            
-            // 2nd way to create 2 cards
-            // since matchingCard is identical to card (is a copy of card) we can do this:
-            // let card = Card(identifier: id)
-            // cards.append(card)
-            // cards.append(card)
+        for _ in 1...numberOfPairsOfCards {
+            let card = Card()
+            cards += [card, card]     // copy #2 and #3 of card
         }
+        // TODO: shuffle the cards (homework, need to know value type array or value type
     }
 }
+
+/*
+
+ class Concentrat
+ {
+     var cards = [Card]()            // <- equiv to   var cards = Array<Card>()
+     
+     // allow user to flip/choose card
+     func chooseCard (at index: Int) { // index into cards array, let user choose card by specifying index number into cards array
+     }
+     
+     init (numberOfPairsOfCards: Int) {
+         for id in 1...numberOfPairsOfCards {
+             // 3rd way to create 2 cards (best way)
+             // we actually have 3 copy of card
+             // (3 distinct card objects in memory)
+             let card = Card(identifier: id) // copy #1 of card
+             cards += [card, card]     // copy #2 and #3 of card
+             
+             // 1st way to create card and matchindCard
+             // let card = Card(identifier: id)
+             // let matchingCard = Card(identifier: id)
+             // cards.append(card)
+             // cards.append(matchingCard)
+             
+             // 2nd way to create 2 cards
+             // since matchingCard is identical to card (is a copy of card) we can do this:
+             // let card = Card(identifier: id)
+             // cards.append(card)
+             // cards.append(card)
+         }
+     }
+ }
+ 
+ */
+
 
 // what are essentials to Concentrat class ?
 // var cards: Array<Card>       // this has no initializer
