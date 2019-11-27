@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // "game" represents green arrow going from Controller to Model
+    // var game: Concentrat <- has no initializer
+    // var game: Concentrat = Concentrat()
+    var game = Concentrat(numberOfPairsOfCards: 8)
+    // dont need " : Concentrat " because of type inference in swift
+    // but we need to initialize game object with how many cards in it
+    
+    // my dummy code to show how to define variable type then
+    // initialized it to value of 2
+    // var dummyInt: Int = 2
+        
     var flipCount: Int = 0 {
         
         didSet { // this is Property Observer

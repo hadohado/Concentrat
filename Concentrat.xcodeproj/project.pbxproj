@@ -62,8 +62,9 @@
 		7B760C682383DFE600997814 /* Concentrat */ = {
 			isa = PBXGroup;
 			children = (
-				7BB92F53238DE3CB00A49B9C /* Concentrat.swift */,
 				7B5DD19C238C6BD7008CF30A /* README.swift */,
+				7BB92F55238DE75500A49B9C /* Card.swift */,
+				7BB92F53238DE3CB00A49B9C /* Concentrat.swift */,
 				7B760C692383DFE600997814 /* AppDelegate.swift */,
 				7B760C6B2383DFE600997814 /* SceneDelegate.swift */,
 				7B760C6D2383DFE600997814 /* ViewController.swift */,
@@ -71,7 +72,6 @@
 				7B760C722383DFE700997814 /* Assets.xcassets */,
 				7B760C742383DFE700997814 /* LaunchScreen.storyboard */,
 				7B760C772383DFE700997814 /* Info.plist */,
-				7BB92F55238DE75500A49B9C /* Card.swift */,
 			);
 			path = Concentrat;
 			sourceTree = "<group>";
