@@ -26,7 +26,7 @@ class Concentrat
             cards[index].isFaceUp = true
         }
     }
-    
+     
     init (numberOfPairsOfCards: Int) {
         for _ in 1...numberOfPairsOfCards {
             let card = Card()

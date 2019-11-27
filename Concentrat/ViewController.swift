@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     
     
-    var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" , "🍄", "🐬", "🐥", "🧵", "💰", "🐠", "👩‍❤️‍💋‍👨", "🎯", "😘", "🦀", "❗️", "🎉", "🎄", "🦄" ]
+    
     @IBOutlet weak var flipCountLabel: UILabel! // 1:06:18
     
     
@@ -74,9 +74,26 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    var emojiChoices : Array<String> = [ "❤️", "🍒" , "🍄", "🐬", "🐥", "🧵", "💰", "🐠", "👩‍❤️‍💋‍👨", "🎯", "😘", "🦀", "❗️", "🎉", "🎄", "🦄" ]
+    // var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" ]
+    
+    // var emoji: Dictionary<Int, String> // Dictionary<key type, value type>
+    // var emoji = Dictionary<Int, String>() // create empty dictionary
+    var emoji = [Int : String]()
     
     func emoji (for card: Card) -> String {
-        return "?"
+        if emoji[card.identifier] == nil {
+            // arc4random_uniform(un-signed int)
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count) ))
+            // let abc = arc4random_uniform(<#T##__upper_bound: UInt32##UInt32#>)
+            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+        }
+        // if let chosenEmoji = emoji[card.identifier]
+        return emoji[card.identifier] ?? "?"
+        // if emoji[card.identifier] != nil {
+        //    return emoji[card.identifier]!
+        // } else { return "?" }
     }
     
 //    @IBAction func touchCard2(_ sender: UIButton) {
