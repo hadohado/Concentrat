@@ -9,11 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+ 
+    @IBOutlet var cardButtons: [UIButton]!
     
     // "game" represents green arrow going from Controller to Model
     // var game: Concentrat <- has no initializer
     // var game: Concentrat = Concentrat()
-    var game = Concentrat(numberOfPairsOfCards: 8)
+    
+    // Cannot use instance member 'cardButtons' within property initializer; property initializers run before 'self' is available
+    lazy var game = Concentrat(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    
     // dont need " : Concentrat " because of type inference in swift
     // but we need to initialize game object with how many cards in it
     
@@ -29,7 +34,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet var cardButtons: [UIButton]!
+    
     
     var emojiChoices : Array<String> = [ "❤️", "🍒" ,"❤️", "🍒" , "🍄", "🐬", "🐥", "🧵", "💰", "🐠", "👩‍❤️‍💋‍👨", "🎯", "😘", "🦀", "❗️", "🎉", "🎄", "🦄" ]
     @IBOutlet weak var flipCountLabel: UILabel! // 1:06:18
@@ -42,14 +47,37 @@ class ViewController: UIViewController {
         // cardNumber is never mutated (is a constant) change var to let
         // using firstIndex(of:) to find the position of a particular element in a collection, you can use it to access the element by subscripting.
         if let cardNumber = cardButtons.firstIndex(of: sender) { // _.index(of: <#T##UIButton#>) is obsolete
-            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            // flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            game.chooseCard(at: cardNumber)
+            updateViewFromModel() // new method nov-27
             // print("cardNumber =  \(cardNumber)" )
+            
         } else {
             print("chosen card is not in cardButtons array")
         }
         // flipCard(withEmoji: "❤️" , on: sender)
     }
     
+    func updateViewFromModel() {
+        // for button in cardButtons {   }
+        // for  index in 0..<cardButtons.count {   }
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            let card = game.cards[index]
+            if card.isFaceUp {
+                button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            } else {
+                button.setTitle("", for: UIControl.State.normal)
+                button.backgroundColor = card.isMatched ?  #colorLiteral(red: 1, green: 0.533179118, blue: 0.3817307833, alpha: 0) : #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+                // button.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+            }
+        }
+    }
+    
+    func emoji (for card: Card) -> String {
+        return "?"
+    }
     
 //    @IBAction func touchCard2(_ sender: UIButton) {
 //        flipCount += 1
