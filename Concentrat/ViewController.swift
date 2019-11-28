@@ -83,14 +83,22 @@ class ViewController: UIViewController {
     var emoji = [Int : String]()
     
     func emoji (for card: Card) -> String {
-        if emoji[card.identifier] == nil {
-            // arc4random_uniform(un-signed int)
+        if emoji[card.identifier] == nil, emojiChoices.count   > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count) ))
-            // let abc = arc4random_uniform(<#T##__upper_bound: UInt32##UInt32#>)
             emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
         }
-        // if let chosenEmoji = emoji[card.identifier]
         return emoji[card.identifier] ?? "?"
+        
+        // if emoji[card.identifier] == nil {
+        //    if emojiChoices.count   > 0 {
+        //        // arc4random_uniform(un-signed int)
+        //        let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count) ))
+        //        // let abc = arc4random_uniform(<#T##__upper_bound: UInt32##UInt32#>)
+        //        emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+        //    }
+        // }
+        // if let chosenEmoji = emoji[card.identifier]
+        //      return emoji[card.identifier] ?? "?"
         // if emoji[card.identifier] != nil {
         //    return emoji[card.identifier]!
         // } else { return "?" }

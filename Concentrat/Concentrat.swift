@@ -18,13 +18,48 @@ class Concentrat
 {
     var cards = [Card]()  // <- equiv to var cards = Array<Card>()
     
+    // we need optional var here since there can be 0, 1 or 2 cards faced up
+    var indexOfOneAndOnlyFaceUpCard: Int?
+    
     // allow user to flip/choose card
     func chooseCard (at index: Int) {
-        if cards[index].isFaceUp {
-            cards[index].isFaceUp = false
-        } else {
-            cards[index].isFaceUp = true
+        // write code to play game here ! 1:01
+        // when a card is chosen, ignore card that has been matched
+        if !cards[index].isMatched {
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+                // check if card match
+                if cards[matchIndex].identifier == cards[index].identifier {
+                    cards[matchIndex].isMatched = true
+                    cards[index].isMatched = true // card you choose
+                }
+                cards[index].isFaceUp = true // your chosen card faced up again
+                indexOfOneAndOnlyFaceUpCard = nil
+            } else {
+                // either no card or 2 cards are faced up
+                for flipDownIndex in cards.indices {
+                    cards[flipDownIndex].isFaceUp = false
+                }
+                cards[index].isFaceUp = true // your chosen card faced up again
+                indexOfOneAndOnlyFaceUpCard = index
+            }
+            
+            // 3 cases
+            // 1- no card are faced up, then flip chosen card over
+            // 2- 2 cards are faced up, either matching or not
+            //    if match: flip both cards faced down
+            // 3- 1 card faced up already, I choose another card, now I need a match
+            // (we have to really work if there is 1 card faced up)
+            
+            
+            
+            
         }
+        
+        // if cards[index].isFaceUp {
+        //    cards[index].isFaceUp = false
+        // } else {
+        //    cards[index].isFaceUp = true
+        // }
     }
      
     init (numberOfPairsOfCards: Int) {
