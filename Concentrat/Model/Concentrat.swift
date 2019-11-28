@@ -49,10 +49,6 @@ class Concentrat
             //    if match: flip both cards faced down
             // 3- 1 card faced up already, I choose another card, now I need a match
             // (we have to really work if there is 1 card faced up)
-            
-            
-            
-            
         }
         
         // if cards[index].isFaceUp {
@@ -67,9 +63,22 @@ class Concentrat
             let card = Card()
             cards += [card, card]     // copy #2 and #3 of card
         }
-        // TODO: shuffle the cards (homework, need to know value type array or value type
+        // TODO: shuffle the cards (homework)
+        //       need to know value type array or value type
+        cards.shuffle()
+        // print("class Concentrat TODO cards = ", cards)
     }
 }
+
+/* before cards.shuffle()
+
+class Concentrat TODO cards =  [Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 1), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 1), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 2), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 2), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 3), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 3), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 4), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 4), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 5), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 5), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 6), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 6), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 7), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 7), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 8), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 8)]
+ */
+
+/* after cards.shuffle()
+class Concentrat TODO cards =  [Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 2), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 3), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 4), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 1), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 7), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 6), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 3), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 6), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 8), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 5), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 4), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 8), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 2), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 1), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 7), Concentrat.Card(isFaceUp: false, isMatched: false, identifier: 5)]
+ 
+ */
 
 /*
 
