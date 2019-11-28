@@ -8,7 +8,13 @@
 
 import Foundation
 
-// ------
+// ---------------------------------
+// homework:
+// ---------------------------------
+// 1: add a new game button
+// 2: randomize ?
+
+// ---------------------------------
 // nov-25 completed lecture 1
 // will make all cards have same method, 1:05 hour into lecture
 // will create array of cards (1:05:05)
